@@ -255,9 +255,9 @@ This directory contains manager-focused supporting documents for the OrangeHRM Q
 
 | Metric | Value | Document |
 |--------|-------|----------|
-| **ROI (1 year)** | 724% | roi-analysis.csv |
+| **ROI (1 year)** | 1,098% | roi-analysis.csv |
 | **ROI (3 year)** | 3,071% | roi-analysis.csv |
-| **Payback Period** | 1.7 months | roi-analysis.csv |
+| **Payback Period** | 1 month | roi-analysis.csv |
 | **Requirements Coverage** | 98.9% | test-coverage-summary.csv |
 | **Test Automation** | 32.6% | test-metrics-dashboard.csv |
 | **Critical Defects** | 0 | test-metrics-dashboard.csv |
@@ -307,9 +307,9 @@ All documents are in Git version control:
 5. **Deep dive:** All CSV files with analysis
 
 ### Key Questions Answered
-- **"What's the ROI?"** → 724% in 12 months (roi-analysis.csv)
+- **"What's the ROI?"** → 1,098% in 12 months (roi-analysis.csv)
 - **"How much did it cost?"** → $45K initial investment (roi-analysis.csv)
-- **"When do we break even?"** → 1.7 months (roi-analysis.csv)
+- **"When do we break even?"** → 1 month (roi-analysis.csv)
 - **"What are the risks?"** → 18 of 25 mitigated (risk-register.csv)
 - **"What's our quality level?"** → 98.9% coverage, 0 critical defects (test-coverage-summary.csv)
 - **"How does it scale?"** → Framework ready for 3x growth (executive-case-study.md)

@@ -7,7 +7,7 @@
 **Duration:** 5 Weeks (February 2026)  
 **Team Lead:** Brad  
 **Investment:** $45,000 (estimated)  
-**ROI:** 724% over 12 months  
+**ROI:** 1,098% in Year 1 (3,071% over 3 years)  
 
 ### Key Achievements
 
@@ -484,16 +484,18 @@ We adopted a phased implementation approach:
 ```
 ROI = (Total Benefits - Total Investment) / Total Investment × 100
 ROI = ($371,000 - $45,000) / $45,000 × 100
-ROI = 724% over 12 months
+ROI = $326,000 / $45,000 × 100
+ROI = 1,098% in Year 1
 ```
 
 **Conservative ROI (excluding revenue impact):**
 ```
 ROI = ($321,000 - $45,000) / $45,000 × 100
+ROI = $276,000 / $45,000 × 100
 ROI = 613%
 ```
 
-**Payback Period:** 1.7 months
+**Payback Period:** 1 month (or 0.83 months precisely)
 
 ### Intangible Benefits
 
@@ -740,7 +742,7 @@ Beyond measurable ROI:
 
 ## Conclusion
 
-The OrangeHRM QA Testing Framework implementation demonstrates that systematic quality engineering delivers measurable business value. With a **724% ROI**, **zero critical defects**, and **67% faster release cycles**, the investment has exceeded all expectations.
+The OrangeHRM QA Testing Framework implementation demonstrates that systematic quality engineering delivers measurable business value. With a **1,098% ROI in Year 1**, **zero critical defects**, and **67% faster release cycles**, the investment has exceeded all expectations.
 
 More importantly, we've established a **sustainable quality culture** and built **reusable capabilities** that will benefit the organization for years to come.
 
