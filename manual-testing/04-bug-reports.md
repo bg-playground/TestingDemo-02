@@ -34,7 +34,7 @@ Each bug report includes:
 **Severity:** Medium  
 **Priority:** P2  
 **Module:** Authentication  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 5, 2026  
 **Environment:** Chrome 120, Windows 11  
 
@@ -68,7 +68,7 @@ See: `/screenshots/bug-001-password-spaces.png` (placeholder - would contain act
 **Severity:** Medium  
 **Priority:** P2  
 **Module:** PIM  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 5, 2026  
 **Environment:** Firefox 120, macOS  
 
@@ -102,7 +102,7 @@ See: `/screenshots/bug-002-case-sensitive-search.png` (placeholder)
 **Severity:** Low  
 **Priority:** P3  
 **Module:** Leave  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 5, 2026  
 **Environment:** Chrome 120, Ubuntu 22.04  
 
@@ -137,7 +137,7 @@ See: `/screenshots/bug-003-past-dates-allowed.png` (placeholder)
 **Severity:** High  
 **Priority:** P1  
 **Module:** Admin - User Management  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 6, 2026  
 **Environment:** Edge 120, Windows 10  
 
@@ -171,7 +171,7 @@ See: `/screenshots/bug-004-empty-role-dropdown.png` (placeholder)
 **Severity:** Medium  
 **Priority:** P2  
 **Module:** Dashboard  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 6, 2026  
 **Environment:** Safari 17, macOS Sonoma  
 
@@ -205,7 +205,7 @@ See: `/screenshots/bug-005-stale-chart-data.png` (placeholder)
 **Severity:** Low  
 **Priority:** P3  
 **Module:** PIM  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 6, 2026  
 **Environment:** Chrome 120, Windows 11  
 
@@ -239,7 +239,7 @@ See: `/screenshots/bug-006-photo-size-limit.png` (placeholder)
 **Severity:** Medium  
 **Priority:** P2  
 **Module:** Time  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 6, 2026  
 **Environment:** Firefox 120, Windows 11  
 
@@ -274,7 +274,7 @@ See: `/screenshots/bug-007-decimal-hours.png` (placeholder)
 **Severity:** Medium  
 **Priority:** P2  
 **Module:** Recruitment  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 6, 2026  
 **Environment:** Chrome 120, macOS  
 
@@ -308,7 +308,7 @@ See: `/screenshots/bug-008-duplicate-email.png` (placeholder)
 **Severity:** High  
 **Priority:** P1  
 **Module:** Leave  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 6, 2026  
 **Environment:** Edge 120, Windows 11  
 
@@ -343,7 +343,7 @@ See: `/screenshots/bug-009-balance-calculation.png` (placeholder)
 **Severity:** Low  
 **Priority:** P3  
 **Module:** UI/UX  
-**Reported By:** QA Team  
+**Reported By:** Brad  
 **Reported Date:** Feb 6, 2026  
 **Environment:** Chrome Mobile, Android 13  
 
@@ -480,7 +480,7 @@ screenshots/
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | Feb 2026 | QA Team | Initial version with 10 sample bugs |
+| 1.0 | Feb 2026 | Brad | Initial version with 10 sample bugs |
 
 ---
 

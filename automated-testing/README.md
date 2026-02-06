@@ -429,7 +429,7 @@ MIT License - See LICENSE file for details
 
 For issues or questions:
 - Create an issue in the repository
-- Contact the QA team
+- Contact Brad
 - Refer to [Playwright Documentation](https://playwright.dev/)
 
 ## Additional Resources

@@ -6,7 +6,7 @@
 - **Project Name:** OrangeHRM Demo QA Testing
 - **Version:** 1.0
 - **Date:** February 2026
-- **Prepared By:** QA Team
+- **Prepared By:** Brad
 
 ---
 
@@ -258,7 +258,7 @@ Defects → Test Cases → Requirements
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | Feb 2026 | QA Team | Initial version with 90 requirements |
+| 1.0 | Feb 2026 | Brad | Initial version with 90 requirements |
 
 ---
 

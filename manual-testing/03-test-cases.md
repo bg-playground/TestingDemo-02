@@ -1200,4 +1200,4 @@
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | Feb 2026 | QA Team | Initial version with 95 test cases |
+| 1.0 | Feb 2026 | Brad | Initial version with 95 test cases |

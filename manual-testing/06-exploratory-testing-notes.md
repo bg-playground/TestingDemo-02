@@ -7,7 +7,7 @@
 - **Application URL:** https://opensource-demo.orangehrmlive.com/
 - **Version:** 1.0
 - **Date:** February 2026
-- **Tester(s):** QA Team
+- **Tester(s):** Brad
 
 ---
 
@@ -568,7 +568,7 @@ Approximately **70% of application features** explored through 8 exploratory ses
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | Feb 2026 | QA Team | Initial version with 8 test sessions |
+| 1.0 | Feb 2026 | Brad | Initial version with 8 test sessions |
 
 ---
 

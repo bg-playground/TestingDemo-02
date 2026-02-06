@@ -7,7 +7,7 @@
 - **Application URL:** https://opensource-demo.orangehrmlive.com/
 - **Version:** 1.0
 - **Date:** February 2026
-- **Test Plan Owner:** QA Team
+- **Test Plan Owner:** Brad
 
 ---
 
@@ -362,4 +362,4 @@ Testing will resume when:
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | Feb 2026 | QA Team | Initial version |
+| 1.0 | Feb 2026 | Brad | Initial version |

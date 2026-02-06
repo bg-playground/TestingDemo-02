@@ -21,7 +21,7 @@
     "orangehrm",
     "qa"
   ],
-  "author": "QA Team",
+  "author": "Brad",
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
