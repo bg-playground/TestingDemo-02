@@ -30,9 +30,9 @@ Job Vacancies,4,4,100,4,4,0,0,High,4,0,0,0,0,Complete
 Candidates,5,5,100,5,5,0,0,High,5,0,0,1,0.2,Complete
 Application Process,4,4,100,4,4,0,0,Medium,4,0,0,0,0,Complete
 Recruitment Reports,2,2,100,2,2,0,0,Low,2,0,0,0,0,Complete
-General/API,6,5,83.3,5,5,13,260,High,0,1.2,N/A,1,0.2,Complete
+General/API,6,5,83.3,18,5,13,72.2,High,0,1.2,100,1,0.06,Complete
 API Authentication,2,2,100,3,3,3,100,Critical,0,0.3,100,0,0,Complete
-API CRUD Operations,3,2,66.7,7,2,7,350,High,0,0.6,100,1,0.14,Complete
+API CRUD Operations,3,2,66.7,10,2,7,70,High,0,0.6,100,1,0.1,Complete
 API Error Handling,1,1,100,3,0,3,N/A,Medium,0,0.3,100,0,0,Complete
 Cross-Module,0,0,N/A,0,0,0,N/A,N/A,0,0,N/A,0,N/A,N/A
 Workflow Integration,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Medium,N/A,N/A,N/A,N/A,N/A,Planned
