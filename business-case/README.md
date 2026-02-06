@@ -16,7 +16,7 @@ This directory contains manager-focused supporting documents for the OrangeHRM Q
 - Strategic approach and methodology
 - Week-by-week implementation journey
 - Comprehensive results and metrics
-- ROI analysis with 724% return
+- ROI analysis with 1,098% return (Year 1)
 - Lessons learned and best practices
 - Future roadmap
 - Recommendations for different audiences

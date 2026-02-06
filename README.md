@@ -236,7 +236,7 @@ See `.github/workflows/azure-deploy.yml.example` for deployment template.
 
 ### Business Case & Executive Materials 📊
 - [Business Case Overview](./business-case/README.md) - Guide to all business documents
-- [Executive Case Study](./business-case/executive-case-study.md) - 20+ page comprehensive case study (724% ROI)
+- [Executive Case Study](./business-case/executive-case-study.md) - 20+ page comprehensive case study (1,098% ROI)
 - [Stakeholder Presentation](./business-case/stakeholder-presentation.md) - 20-slide presentation deck
 - [Test Metrics Dashboard](./business-case/test-metrics-dashboard.csv) - Quality metrics tracking
 - [ROI Analysis](./business-case/roi-analysis.csv) - 3-year financial analysis

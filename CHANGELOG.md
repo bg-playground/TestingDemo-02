@@ -39,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Comprehensive 3-year financial analysis
   - Investment breakdown (direct and indirect costs)
   - Benefits tracking (cost avoidance and revenue enablement)
-  - Financial metrics: ROI (724%), Payback (1.7 months), NPV, IRR
+  - Financial metrics: ROI (1,098% Year 1), Payback (1 month), NPV, IRR
   - Sensitivity analysis (pessimistic, base, optimistic scenarios)
   - Intangible benefits documentation
   - Comparative industry benchmarks

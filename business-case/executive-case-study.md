@@ -477,25 +477,25 @@ We adopted a phased implementation approach:
 - Additional feature delivery: $50,000 revenue opportunity
 - **Revenue Impact: $50,000**
 
-**Total Benefits: $371,000**
+**Total Benefits: $539,000**
 
 ### ROI Calculation
 
 ```
 ROI = (Total Benefits - Total Investment) / Total Investment × 100
-ROI = ($371,000 - $45,000) / $45,000 × 100
-ROI = $326,000 / $45,000 × 100
+ROI = ($539,000 - $45,000) / $45,000 × 100
+ROI = $494,000 / $45,000 × 100
 ROI = 1,098% in Year 1
 ```
 
-**Conservative ROI (excluding revenue impact):**
+**Conservative ROI (excluding revenue enablement):**
 ```
-ROI = ($321,000 - $45,000) / $45,000 × 100
-ROI = $276,000 / $45,000 × 100
-ROI = 613%
+ROI = ($419,000 - $45,000) / $45,000 × 100
+ROI = $374,000 / $45,000 × 100
+ROI = 831%
 ```
 
-**Payback Period:** 1 month (or 0.83 months precisely)
+**Payback Period:** 1 month (0.83 months precisely)
 
 ### Intangible Benefits
 

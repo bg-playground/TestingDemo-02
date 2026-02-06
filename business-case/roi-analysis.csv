@@ -40,7 +40,7 @@ TOTAL BENEFITS,,539000,659000,768000,1966000
 NET BENEFITS,,494000,650500,759500,1904000
 ,,,,,
 FINANCIAL METRICS,,,,,
-ROI %,Return on Investment,1098,7653,8935,3071,Cumulative improves over time
+ROI %,Return on Investment,1098,7653,8935,3071,Annual ROI for each year individually
 Payback Period (months),Time to Recover Investment,1,N/A,N/A,1,Recovered in Month 1 (0.83 months precisely)
 NPV (10% discount),Net Present Value @ 10% discount,448182,537190,569959,1555331,Conservative discount rate
 IRR %,Internal Rate of Return,N/A,N/A,N/A,1250,Exceptional return profile
