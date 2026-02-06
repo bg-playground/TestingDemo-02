@@ -25,7 +25,8 @@ TestingDemo-02/
 │   ├── 03-test-cases.md         # 95 test cases across all modules
 │   ├── 04-bug-reports.md        # Sample bug reports with details
 │   ├── 05-traceability-matrix.md # Requirements traceability (90 requirements)
-│   └── 06-exploratory-testing-notes.md # 8 exploratory test sessions
+│   ├── 06-exploratory-testing-notes.md # 8 exploratory test sessions
+│   └── 07-test-execution-report.md # Test execution report template
 │
 ├── automated-testing/            # Automated test framework
 │   ├── pages/                   # Page Object Models
@@ -40,15 +41,26 @@ TestingDemo-02/
 │   │   │   └── pim.spec.js      # 5 PIM module tests
 │   │   └── api/                 # API tests
 │   │       └── api.spec.js      # 13 API tests
+│   ├── utils/                   # Test utilities
+│   │   ├── testData.js          # Test data fixtures
+│   │   └── helpers.js           # Helper functions (40+)
 │   ├── playwright.config.js     # Test configuration
 │   ├── package.json
 │   └── README.md                # Automation framework docs
+│
+├── screenshots/                  # Screenshot examples and guidelines
+│   └── README.md                # Screenshot documentation
 │
 ├── .github/workflows/            # CI/CD workflows
 │   ├── automated-tests.yml      # GitHub Actions for tests
 │   └── azure-deploy.yml.example # Azure deployment template
 │
-└── README.md                     # This file
+├── SETUP_TROUBLESHOOTING.md     # Complete setup and troubleshooting guide
+├── PERFORMANCE_ACCESSIBILITY.md # Performance & accessibility testing guide
+├── QUICK_START.md               # 5-minute getting started
+├── CONTRIBUTING.md              # Contribution guidelines
+├── CHANGELOG.md                 # Version history
+└── README.md                    # This file
 ```
 
 ## 📋 Manual Testing Suite
@@ -63,6 +75,7 @@ TestingDemo-02/
 | **Bug Reports** | Sample defects found | 10 documented bugs with severity |
 | **Traceability Matrix** | Requirements to test mapping | 90 requirements, 98.9% coverage |
 | **Exploratory Testing** | Ad-hoc testing sessions | 8 sessions, 11 hours total |
+| **Test Execution Report** | Comprehensive report template | Metrics, charts, analysis |
 
 ### Test Coverage by Module
 
@@ -91,6 +104,7 @@ TestingDemo-02/
 - **Test Runner**: Playwright Test
 - **Browsers**: Chrome, Firefox, Safari, Mobile
 - **Reporting**: HTML, JSON, JUnit
+- **Utilities**: 40+ helper functions, test data fixtures
 
 ### Quick Start
 
@@ -203,12 +217,19 @@ See `.github/workflows/azure-deploy.yml.example` for deployment template.
 - [Traceability Matrix](./manual-testing/05-traceability-matrix.md) - Requirements mapping
 - [Exploratory Testing](./manual-testing/06-exploratory-testing-notes.md) - Ad-hoc testing
 
-### Automated Testing
-
+#### Automated Testing
 - [Automation README](./automated-testing/README.md) - Complete automation guide
 - [Test Configuration](./automated-testing/playwright.config.js) - Playwright setup
 - [UI Tests](./automated-testing/tests/ui/) - User interface tests
 - [API Tests](./automated-testing/tests/api/) - API endpoint tests
+- [Test Data](./automated-testing/utils/testData.js) - Reusable test fixtures
+- [Helper Functions](./automated-testing/utils/helpers.js) - 40+ utilities
+
+#### Setup & Advanced Testing
+- [Quick Start](./QUICK_START.md) - 5-minute setup guide
+- [Setup & Troubleshooting](./SETUP_TROUBLESHOOTING.md) - Complete installation guide
+- [Performance & Accessibility](./PERFORMANCE_ACCESSIBILITY.md) - Advanced testing guide
+- [Screenshots Guide](./screenshots/README.md) - Bug documentation best practices
 
 ## 🚀 Getting Started
 
