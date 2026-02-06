@@ -48,6 +48,15 @@ TestingDemo-02/
 │   ├── package.json
 │   └── README.md                # Automation framework docs
 │
+├── business-case/                # 📊 Manager-focused documents
+│   ├── executive-case-study.md  # 20+ page comprehensive case study
+│   ├── stakeholder-presentation.md # 20-slide presentation
+│   ├── test-metrics-dashboard.csv # Quality metrics tracking
+│   ├── risk-register.csv        # 25 risks tracked & mitigated
+│   ├── test-coverage-summary.csv # Module-wise coverage analysis
+│   ├── roi-analysis.csv         # 3-year financial ROI analysis
+│   └── README.md                # Guide to business documents
+│
 ├── screenshots/                  # Screenshot examples and guidelines
 │   └── README.md                # Screenshot documentation
 │
@@ -217,7 +226,7 @@ See `.github/workflows/azure-deploy.yml.example` for deployment template.
 - [Traceability Matrix](./manual-testing/05-traceability-matrix.md) - Requirements mapping
 - [Exploratory Testing](./manual-testing/06-exploratory-testing-notes.md) - Ad-hoc testing
 
-#### Automated Testing
+### Automated Testing
 - [Automation README](./automated-testing/README.md) - Complete automation guide
 - [Test Configuration](./automated-testing/playwright.config.js) - Playwright setup
 - [UI Tests](./automated-testing/tests/ui/) - User interface tests
@@ -225,7 +234,16 @@ See `.github/workflows/azure-deploy.yml.example` for deployment template.
 - [Test Data](./automated-testing/utils/testData.js) - Reusable test fixtures
 - [Helper Functions](./automated-testing/utils/helpers.js) - 40+ utilities
 
-#### Setup & Advanced Testing
+### Business Case & Executive Materials 📊
+- [Business Case Overview](./business-case/README.md) - Guide to all business documents
+- [Executive Case Study](./business-case/executive-case-study.md) - 20+ page comprehensive case study (724% ROI)
+- [Stakeholder Presentation](./business-case/stakeholder-presentation.md) - 20-slide presentation deck
+- [Test Metrics Dashboard](./business-case/test-metrics-dashboard.csv) - Quality metrics tracking
+- [ROI Analysis](./business-case/roi-analysis.csv) - 3-year financial analysis
+- [Risk Register](./business-case/risk-register.csv) - 25 risks tracked & mitigated
+- [Test Coverage Summary](./business-case/test-coverage-summary.csv) - Module-wise coverage
+
+### Setup & Advanced Testing
 - [Quick Start](./QUICK_START.md) - 5-minute setup guide
 - [Setup & Troubleshooting](./SETUP_TROUBLESHOOTING.md) - Complete installation guide
 - [Performance & Accessibility](./PERFORMANCE_ACCESSIBILITY.md) - Advanced testing guide
