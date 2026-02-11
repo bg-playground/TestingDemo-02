@@ -1,4 +1,4 @@
-# This is a sample workflow file
+# Updated CI Workflow
 
 name: CI
 
@@ -16,8 +16,9 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: ./automated-testing
+
+      - name: TypeScript Build
+        run: npx tsc
 
       - name: Run Tests
-        run: npm test
-        working-directory: ./automated-testing
+        run: npm run test -- automated-testing
