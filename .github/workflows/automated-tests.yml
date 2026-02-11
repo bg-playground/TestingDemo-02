@@ -1,15 +1,17 @@
-# This is a sample workflow for automated tests
-
-name: Automated Tests
+name: CI
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -17,14 +19,10 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '18'
 
     - name: Install dependencies
-      run: |
-        cd ./automated-testing
-        npm install
+      run: npm install
 
-    - name: Run Playwright tests
-      run: |
-        cd ./automated-testing
-        npx playwright test
+    - name: Run tests
+      run: npm test
