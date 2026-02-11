@@ -1,52 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TestingDemo Project</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #0073e6;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    main {
-      padding: 20px;
-    }
-    footer {
-      text-align: center;
-      background: #f4f4f4;
-      padding: 10px;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <title>Testing Demo 02</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        }
+        header {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .about, .features {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .features ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features li {
+            background: #ffffff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #343a40;
+            color: white;
+        }
+        @media (max-width: 600px) {
+            header {
+                padding: 30px 10px;
+            }
+            .about, .features {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to TestingDemo</h1>
-  </header>
-  <main>
-    <h2>About This Project</h2>
-    <p>This project demonstrates QA testing principles with a practical focus on Playwright automation.</p>
-    <h2>Key Features</h2>
-    <ul>
-      <li>Manual and automated testing workflows</li>
-      <li>Playwright integration for modern UI testing</li>
-      <li>Efficient CI/CD pipelines</li>
-    </ul>
-    <h2>Explore the Repository</h2>
-    <p>Visit the <a href="https://github.com/bg-playground/TestingDemo-02">GitHub Repository</a> for more details.</p>
-  </main>
-  <footer>
-    <p>&copy; 2026 TestingDemo Project</p>
-  </footer>
+    <header>
+        <h1>Welcome to Testing Demo 02!</h1>
+        <p>Your journey into modern web design starts here</p>
+    </header>
+    <div class="about">
+        <h2>About This Repository</h2>
+        <p>This repository serves as a demo for showcasing the modern practices in web development. Key highlights include:</p>
+        <ul>
+            <li>Responsive design</li>
+            <li>Modern CSS techniques</li>
+            <li>Optimized for performance</li>
+        </ul>
+    </div>
+    <div class="features">
+        <h2>Features</h2>
+        <ul>
+            <li>Feature 1: Description of feature one.</li>
+            <li>Feature 2: Description of feature two.</li>
+            <li>Feature 3: Description of feature three.</li>
+        </ul>
+    </div>
+    <footer>
+        <p>Find us on <a href="https://github.com/bg-playground/TestingDemo-02" style="color: #ffc107;">GitHub</a></p>
+        <p>Contact us: <a href="mailto:info@example.com" style="color: #ffc107;">info@example.com</a></p>
+    </footer>
 </body>
 </html>
