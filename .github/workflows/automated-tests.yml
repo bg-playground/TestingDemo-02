@@ -1,4 +1,5 @@
-name: CI
+# This is an example workflow file
+name: Automated Tests
 
 on:
   push:
@@ -9,20 +10,26 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Run automated tests
+        run: |
+          cd ./automated-testing
+          # Run your test command here
+        working-directory: ./automated-testing
+          
+      - name: Build
+        run: |
+          cd ./automated-testing
+          # Your build commands here
+        working-directory: ./automated-testing
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run tests
-      run: npm test
+      - name: Deploy
+        run: |
+          cd ./automated-testing
+          # Your deployment commands here
+        working-directory: ./automated-testing
