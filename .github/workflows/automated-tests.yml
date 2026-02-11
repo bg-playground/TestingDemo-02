@@ -1,35 +1,3 @@
-# This is an example workflow file
-name: Automated Tests
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-
-      - name: Run automated tests
-        run: |
-          cd ./automated-testing
-          # Run your test command here
-        working-directory: ./automated-testing
-          
-      - name: Build
-        run: |
-          cd ./automated-testing
-          # Your build commands here
-        working-directory: ./automated-testing
-
-      - name: Deploy
-        run: |
-          cd ./automated-testing
-          # Your deployment commands here
-        working-directory: ./automated-testing
+# Debug step to verify directory structure
+- name: Verify Directory Structure
+  run: ls -R
