@@ -4,19 +4,23 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  debug-and-test:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      - name: Debug Directory Structure
-        run: ls -R
-      - name: Run automated tests
-        run: |
-          cd ./automated-testing
-          # Run your test command here.
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./path-to-your-directory
+
+    - name: Run tests
+      run: npm test
+      working-directory: ./path-to-your-directory
