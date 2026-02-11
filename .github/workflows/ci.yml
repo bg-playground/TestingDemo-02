@@ -1,4 +1,6 @@
-name: CI
+# CI Workflow Update for Debugging npm install
+
+name: CI Workflow
 
 on:
   push:
@@ -8,18 +10,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./automated-testing
+    - name: List Project Directory
+      run: |
+        echo "Current directory structure:"
+        ls -al
+        cd <your-project-directory>
+        echo "Project directory structure:"
+        ls -al
 
-      - name: Build TypeScript
-        run: npm run build
-        working-directory: ./automated-testing
+    - name: Install Dependencies
+      run: |
+        cd <your-project-directory>
+        echo "Running npm install..."
+        npm install --verbose
 
-      - name: Run tests
-        run: npm test
-        working-directory: ./automated-testing
+    - name: Run Tests
+      run: |
+        cd <your-project-directory>
+        echo "Running tests..."
+        npm test --verbose
