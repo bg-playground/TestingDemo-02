@@ -9,10 +9,14 @@ on:
       - main
 
 jobs:
-  debug:
+  debug-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Check out repository
         uses: actions/checkout@v2
-      - name: Verify Directory Structure
+      - name: Debug Directory Structure
         run: ls -R
+      - name: Run automated tests
+        run: |
+          cd ./automated-testing
+          # Run your test command here.
