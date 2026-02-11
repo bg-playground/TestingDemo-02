@@ -1,4 +1,3 @@
-# This is a sample GitHub Actions workflow file for automated testing.
 name: Automated Tests
 
 on:
@@ -9,21 +8,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out code
         uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18'
 
       - name: Install dependencies
-        run: |
-          cd ./automated-testing
-          npm install
+        run: npm install
 
       - name: Run tests
-        run: |
-          cd ./automated-testing
-          npm test
+        run: npm test
