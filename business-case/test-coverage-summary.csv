@@ -1,0 +1,40 @@
+Module,Total Requirements,Requirements Tested,Coverage %,Total Test Cases,Manual Tests,Automated Tests,Automation %,Priority,Test Hours Manual,Test Hours Auto,Time Savings %,Defects Found,Defect Density,Status
+Authentication,8,8,100,10,10,9,90,Critical,4,0.2,95,2,0.25,Complete
+Login & Logout,4,4,100,5,5,5,100,Critical,2,0.1,95,1,0.25,Complete
+Session Management,2,2,100,3,3,2,67,High,1,0.05,95,0,0,Complete
+Password Reset,2,2,100,2,2,2,100,High,1,0.05,95,1,0.5,Complete
+Admin Module,16,16,100,20,20,4,20,High,16,0.5,97,3,0.19,Complete
+User Management,5,5,100,8,8,2,25,High,6,0.2,97,1,0.13,Complete
+Organization Structure,4,4,100,5,5,1,20,Medium,4,0.1,98,1,0.2,Complete
+Job Titles & Categories,3,3,100,3,3,1,33,Medium,3,0.1,97,0,0,Complete
+Qualifications,2,2,100,2,2,0,0,Low,2,0,0,1,0.5,Complete
+System Configuration,2,2,100,2,2,0,0,Medium,1,0,0,0,0,Complete
+PIM (Personal Info),20,20,100,20,20,5,25,Critical,20,0.6,97,2,0.1,Complete
+Employee List,4,4,100,5,5,2,40,Critical,4,0.2,95,0,0,Complete
+Add Employee,5,5,100,6,6,2,33,Critical,5,0.2,96,1,0.17,Complete
+Employee Details,6,6,100,5,5,1,20,High,6,0.15,98,1,0.17,Complete
+Custom Fields,3,3,100,2,2,0,0,Medium,3,0,0,0,0,Complete
+Reports,2,2,100,2,2,0,0,Low,2,0,0,0,0,Complete
+Leave Management,15,15,100,15,15,0,0,High,18,0,0,2,0.13,Complete
+Leave Types,3,3,100,3,3,0,0,High,3,0,0,0,0,Complete
+Leave Entitlements,4,4,100,4,4,0,0,High,5,0,0,1,0.25,Complete
+Apply Leave,4,4,100,4,4,0,0,Critical,5,0,0,1,0.25,Complete
+Leave Calendar,2,2,100,2,2,0,0,Medium,3,0,0,0,0,Complete
+Leave Reports,2,2,100,2,2,0,0,Medium,2,0,0,0,0,Complete
+Time Tracking,10,10,100,10,10,0,0,Medium,12,0,0,1,0.1,Complete
+Timesheets,4,4,100,4,4,0,0,High,5,0,0,0,0,Complete
+Attendance,3,3,100,3,3,0,0,High,4,0,0,1,0.33,Complete
+Time Reports,3,3,100,3,3,0,0,Medium,3,0,0,0,0,Complete
+Recruitment,15,15,100,15,15,0,0,Medium,15,0,0,1,0.07,Complete
+Job Vacancies,4,4,100,4,4,0,0,High,4,0,0,0,0,Complete
+Candidates,5,5,100,5,5,0,0,High,5,0,0,1,0.2,Complete
+Application Process,4,4,100,4,4,0,0,Medium,4,0,0,0,0,Complete
+Recruitment Reports,2,2,100,2,2,0,0,Low,2,0,0,0,0,Complete
+General/API,6,5,83.3,18,5,13,72.2,High,0,1.2,100,1,0.06,Complete
+API Authentication,2,2,100,3,3,3,100,Critical,0,0.3,100,0,0,Complete
+API CRUD Operations,3,2,66.7,10,2,7,70,High,0,0.6,100,1,0.1,Complete
+API Error Handling,1,1,100,3,0,3,N/A,Medium,0,0.3,100,0,0,Complete
+Cross-Module,0,0,N/A,0,0,0,N/A,N/A,0,0,N/A,0,N/A,N/A
+Workflow Integration,N/A,N/A,N/A,N/A,N/A,N/A,N/A,Medium,N/A,N/A,N/A,N/A,N/A,Planned
+End-to-End Scenarios,N/A,N/A,N/A,N/A,N/A,N/A,N/A,High,N/A,N/A,N/A,N/A,N/A,Planned
+TOTAL,90,89,98.9,95,95,31,32.6,N/A,85,2.5,97.1,10,0.11,Complete

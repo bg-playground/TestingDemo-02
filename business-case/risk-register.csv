@@ -1,0 +1,26 @@
+Risk ID,Risk Category,Risk Description,Probability,Impact,Risk Score,Mitigation Strategy,Owner,Status,Date Identified,Date Mitigated,Residual Risk,Notes
+R001,Security,SQL injection vulnerabilities in search and filter functions,Medium,Critical,12,Implemented parameterized queries and input validation testing,Brad,Mitigated,2026-01-05,2026-01-19,Low,All database queries reviewed and tested
+R002,Security,Cross-site scripting (XSS) in user input fields,Medium,High,9,Added XSS validation tests and input sanitization checks,Brad,Mitigated,2026-01-05,2026-01-19,Low,13 XSS test scenarios created
+R003,Security,Authentication bypass vulnerabilities,Low,Critical,6,Comprehensive authentication test suite with negative scenarios,Brad,Mitigated,2026-01-05,2026-01-26,Very Low,9 auth tests covering edge cases
+R004,Performance,Slow page load times affecting user experience,High,Medium,9,Performance testing guide created with baseline metrics,Brad,Mitigated,2026-01-12,2026-02-09,Low,Performance benchmarks established
+R005,Performance,Database queries causing timeouts under load,Medium,High,9,Query optimization testing and monitoring setup,Brad,Monitoring,2026-01-12,N/A,Medium,Ongoing monitoring required
+R006,Compliance,GDPR data privacy violations in employee records,Low,Critical,6,Data privacy test cases and validation rules,Brad,Mitigated,2026-01-05,2026-01-26,Low,Privacy requirements mapped
+R007,Compliance,Audit trail gaps for compliance reporting,Medium,High,9,Comprehensive audit logging validation tests,Brad,Mitigated,2026-01-12,2026-02-02,Low,All critical actions logged
+R008,Functional,Leave calculation errors causing payroll issues,High,High,12,Extensive leave module testing with edge cases,Brad,Mitigated,2026-01-12,2026-02-09,Low,20 leave calculation scenarios tested
+R009,Functional,Time tracking rounding errors accumulating over time,Medium,Medium,6,Time module validation with precision testing,Brad,Mitigated,2026-01-19,2026-02-09,Low,10 time tracking tests created
+R010,Data Integrity,Employee records corruption during bulk operations,Low,High,6,Bulk operation testing and rollback procedures,Brad,Mitigated,2026-01-19,2026-02-02,Low,Data integrity checks automated
+R011,Usability,Confusing navigation reducing user productivity,Medium,Medium,6,Usability testing and navigation flow validation,Brad,Accepted,2026-01-12,N/A,Medium,Minor UX issues documented as enhancements
+R012,Integration,Third-party API failures causing system outages,Medium,High,9,API error handling and fallback testing,Brad,Mitigated,2026-01-26,2026-02-16,Low,Robust error handling implemented
+R013,Browser Compatibility,Features breaking in Safari and Firefox,High,Medium,9,Multi-browser testing in CI/CD pipeline,Brad,Mitigated,2026-01-19,2026-02-02,Low,5 browsers tested automatically
+R014,Accessibility,WCAG 2.1 compliance failures blocking government sales,Low,High,6,Accessibility testing framework and guidelines,Brad,In Progress,2026-02-02,N/A,Medium,Basic a11y tests created
+R015,Mobile,Mobile responsiveness issues on tablet devices,Medium,Medium,6,Mobile viewport testing added to automation,Brad,In Progress,2026-02-09,N/A,Medium,Mobile testing framework ready
+R016,Regression,New features breaking existing functionality,High,High,12,Comprehensive regression test suite with automation,Brad,Mitigated,2026-01-05,2026-02-16,Low,31 automated regression tests
+R017,Test Coverage,Critical business paths not covered by tests,High,Critical,15,Requirements traceability matrix tracking coverage,Brad,Mitigated,2026-01-05,2026-02-09,Low,98.9% coverage achieved
+R018,Test Data,Insufficient test data for realistic scenarios,High,Medium,9,Test data fixtures and generation utilities,Brad,Mitigated,2026-01-26,2026-02-16,Low,Comprehensive test data library created
+R019,Team Knowledge,Single point of failure in QA expertise,Medium,High,9,Documentation and knowledge transfer program,Brad,Mitigated,2026-01-05,2026-02-23,Low,Complete documentation suite
+R020,Tool Dependency,Automation framework becoming obsolete,Low,Medium,3,Modern open-source tools with active communities,Brad,Accepted,2026-01-19,N/A,Low,Playwright well-supported
+R021,Maintenance,Automated tests becoming flaky and unreliable,Medium,Medium,6,Robust wait strategies and Page Object Model,Brad,Mitigated,2026-02-02,2026-02-16,Low,<5% flaky test rate achieved
+R022,CI/CD,Build pipeline failures blocking development,Medium,High,9,Stable CI/CD configuration with proper error handling,Brad,Mitigated,2026-02-02,2026-02-16,Low,GitHub Actions reliable
+R023,Environment,Test environment instability causing false failures,High,Medium,9,Environment setup automation and documentation,Brad,Mitigated,2026-01-26,2026-02-16,Low,Reproducible environments
+R024,Reporting,Lack of visibility into quality metrics for stakeholders,High,Medium,9,Executive dashboards and reporting templates,Brad,Mitigated,2026-02-02,2026-02-23,Low,Comprehensive reporting established
+R025,Scalability,Testing approach not scaling with product growth,Medium,High,9,Scalable framework architecture and automation,Brad,Mitigated,2026-01-12,2026-02-16,Low,Framework designed for growth

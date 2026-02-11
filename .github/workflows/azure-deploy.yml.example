@@ -1,0 +1,41 @@
+# Azure Static Web App Deployment (Optional)
+# Uncomment and configure when ready to deploy
+
+# name: Deploy to Azure
+
+# on:
+#   push:
+#     branches: [ main ]
+#   workflow_dispatch:
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     name: Build and Deploy to Azure Static Web Apps
+    
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           submodules: true
+
+#       - name: Build And Deploy
+#         uses: Azure/static-web-apps-deploy@v1
+#         with:
+#           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+#           repo_token: ${{ secrets.GITHUB_TOKEN }}
+#           action: "upload"
+#           app_location: "/" # App source code path
+#           api_location: "" # Api source code path - optional
+#           output_location: "" # Built app content directory - optional
+
+# Configuration for Azure App Service deployment:
+# 
+# 1. Create Azure Static Web App or App Service in Azure Portal
+# 2. Get deployment token/credentials
+# 3. Add as GitHub Secret: AZURE_STATIC_WEB_APPS_API_TOKEN
+# 4. Uncomment and configure the workflow above
+# 5. Push to main branch to trigger deployment
+# 
+# For more details:
+# - https://docs.microsoft.com/azure/static-web-apps/
+# - https://docs.microsoft.com/azure/app-service/
