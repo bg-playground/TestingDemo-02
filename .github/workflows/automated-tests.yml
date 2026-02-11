@@ -1,3 +1,18 @@
-# Debug step to verify directory structure
-- name: Verify Directory Structure
-  run: ls -R
+name: Automated Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Verify Directory Structure
+        run: ls -R
