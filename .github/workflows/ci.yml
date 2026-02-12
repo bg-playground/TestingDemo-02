@@ -1,9 +1,10 @@
-# CI Workflow
-
 name: CI Workflow
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -12,20 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: '11'
-
-      - name: Run tests
+      - name: Log project structure for debugging
+        run: |
+          echo "Root directory:"
+          ls -al
+          echo "Contents of ./automated-testing directory:"
+          ls -al ./automated-testing
+        
+      - name: Install Node Dependencies
         run: |
           cd ./automated-testing
-          ./gradlew test
+          npm install
+        shell: bash
 
-      - name: Build
+      - name: Run npm Tests
         run: |
           cd ./automated-testing
-          ./gradlew build
+          npm test
+        shell: bash
