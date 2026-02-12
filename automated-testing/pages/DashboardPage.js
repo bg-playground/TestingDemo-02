@@ -8,6 +8,7 @@ export class DashboardPage {
     this.timeAtWorkWidget = page.locator('.orangehrm-dashboard-widget-name', { hasText: 'Time at Work' });
     this.myActionsWidget = page.locator('.orangehrm-dashboard-widget-name', { hasText: 'My Actions' });
     this.mobileMenuToggle = page.locator('button.oxd-icon-button.oxd-main-menu-button');
+    this.mainMenu = page.locator('nav.oxd-main-menu, aside.oxd-sidepanel');
     this.adminMenu = page.getByRole('link', { name: 'Admin' });
     this.pimMenu = page.getByRole('link', { name: 'PIM' });
     this.leaveMenu = page.getByRole('link', { name: 'Leave' });
@@ -29,10 +30,15 @@ export class DashboardPage {
     const isMobileMenuVisible = await this.mobileMenuToggle.isVisible().catch(() => false);
     
     if (isMobileMenuVisible) {
-      // Click to open mobile menu
-      await this.mobileMenuToggle.click();
-      // Wait for one of the menu items to become visible after menu opens
-      await this.pimMenu.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+      try {
+        // Click to open mobile menu
+        await this.mobileMenuToggle.click();
+        // Wait for the main navigation menu to become visible after opening
+        await this.mainMenu.waitFor({ state: 'visible', timeout: 5000 });
+      } catch (error) {
+        // Log error for debugging but don't fail - menu might already be visible
+        console.warn('Mobile menu toggle clicked but menu visibility check timed out:', error.message);
+      }
     }
   }
 
