@@ -24,22 +24,27 @@ export class DashboardPage {
   }
 
   async navigateToAdmin() {
+    await this.adminMenu.waitFor({ state: 'visible' });
     await this.adminMenu.click();
   }
 
   async navigateToPIM() {
+    await this.pimMenu.waitFor({ state: 'visible' });
     await this.pimMenu.click();
   }
 
   async navigateToLeave() {
+    await this.leaveMenu.waitFor({ state: 'visible' });
     await this.leaveMenu.click();
   }
 
   async navigateToTime() {
+    await this.timeMenu.waitFor({ state: 'visible' });
     await this.timeMenu.click();
   }
 
   async navigateToRecruitment() {
+    await this.recruitmentMenu.waitFor({ state: 'visible' });
     await this.recruitmentMenu.click();
   }
 
