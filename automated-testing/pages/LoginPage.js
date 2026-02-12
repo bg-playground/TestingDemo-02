@@ -19,6 +19,9 @@ export class LoginPage {
     await this.loginButton.click();
     // Wait for navigation to complete after login
     await this.page.waitForLoadState('networkidle', { timeout: 60000 });
+    // Ensure dashboard is actually loaded
+    await this.page.waitForURL(/.*dashboard/, { timeout: 60000 });
+    await this.page.getByRole('heading', { name: 'Dashboard' }).waitFor({ state: 'visible', timeout: 60000 });
   }
 
   async getErrorMessage() {
