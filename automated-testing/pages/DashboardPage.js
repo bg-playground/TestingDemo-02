@@ -27,18 +27,18 @@ export class DashboardPage {
 
   async ensureMenuVisible() {
     // Check if mobile menu toggle is visible (indicates mobile viewport)
-    const isMobileMenuVisible = await this.mobileMenuToggle.isVisible().catch(() => false);
-    
-    if (isMobileMenuVisible) {
-      try {
+    try {
+      const isMobileMenuVisible = await this.mobileMenuToggle.isVisible();
+      
+      if (isMobileMenuVisible) {
         // Click to open mobile menu
         await this.mobileMenuToggle.click();
         // Wait for the main navigation menu to become visible after opening
         await this.mainMenu.waitFor({ state: 'visible', timeout: 5000 });
-      } catch (error) {
-        // Log error for debugging but don't fail - menu might already be visible
-        console.warn('Mobile menu toggle clicked but menu visibility check timed out:', error.message);
       }
+    } catch (error) {
+      // Mobile menu toggle not found or timeout - likely already visible or desktop view
+      // This is expected behavior, so we continue without failing
     }
   }
 
