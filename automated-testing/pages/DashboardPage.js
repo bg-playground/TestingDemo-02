@@ -31,8 +31,8 @@ export class DashboardPage {
     if (isMobileMenuVisible) {
       // Click to open mobile menu
       await this.mobileMenuToggle.click();
-      // Wait for menu animation
-      await this.page.waitForTimeout(500);
+      // Wait for one of the menu items to become visible after menu opens
+      await this.pimMenu.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
     }
   }
 
