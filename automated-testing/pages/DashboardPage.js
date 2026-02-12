@@ -7,6 +7,7 @@ export class DashboardPage {
     this.quickLaunchSection = page.locator('.orangehrm-dashboard-widget-name', { hasText: 'Quick Launch' });
     this.timeAtWorkWidget = page.locator('.orangehrm-dashboard-widget-name', { hasText: 'Time at Work' });
     this.myActionsWidget = page.locator('.orangehrm-dashboard-widget-name', { hasText: 'My Actions' });
+    this.mobileMenuToggle = page.locator('button.oxd-icon-button.oxd-main-menu-button');
     this.adminMenu = page.getByRole('link', { name: 'Admin' });
     this.pimMenu = page.getByRole('link', { name: 'PIM' });
     this.leaveMenu = page.getByRole('link', { name: 'Leave' });
@@ -23,8 +24,22 @@ export class DashboardPage {
     await this.logoutOption.click();
   }
 
+  async ensureMenuVisible() {
+    // Check if mobile menu toggle is visible (indicates mobile viewport)
+    const isMobileMenuVisible = await this.mobileMenuToggle.isVisible().catch(() => false);
+    
+    if (isMobileMenuVisible) {
+      // Click to open mobile menu
+      await this.mobileMenuToggle.click();
+      // Wait for menu animation
+      await this.page.waitForTimeout(500);
+    }
+  }
+
   async navigateToAdmin() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
+    await this.ensureMenuVisible();
+    await this.adminMenu.scrollIntoViewIfNeeded();
     await this.adminMenu.waitFor({ state: 'visible', timeout: 60000 });
     await this.adminMenu.click();
     // Wait for Admin page to load
@@ -33,6 +48,8 @@ export class DashboardPage {
 
   async navigateToPIM() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
+    await this.ensureMenuVisible();
+    await this.pimMenu.scrollIntoViewIfNeeded();
     await this.pimMenu.waitFor({ state: 'visible', timeout: 60000 });
     await this.pimMenu.click();
     // Wait for PIM page to load
@@ -41,18 +58,24 @@ export class DashboardPage {
 
   async navigateToLeave() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
+    await this.ensureMenuVisible();
+    await this.leaveMenu.scrollIntoViewIfNeeded();
     await this.leaveMenu.waitFor({ state: 'visible', timeout: 60000 });
     await this.leaveMenu.click();
   }
 
   async navigateToTime() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
+    await this.ensureMenuVisible();
+    await this.timeMenu.scrollIntoViewIfNeeded();
     await this.timeMenu.waitFor({ state: 'visible', timeout: 60000 });
     await this.timeMenu.click();
   }
 
   async navigateToRecruitment() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
+    await this.ensureMenuVisible();
+    await this.recruitmentMenu.scrollIntoViewIfNeeded();
     await this.recruitmentMenu.waitFor({ state: 'visible', timeout: 60000 });
     await this.recruitmentMenu.click();
   }
