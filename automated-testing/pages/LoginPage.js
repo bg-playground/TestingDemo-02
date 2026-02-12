@@ -17,6 +17,8 @@ export class LoginPage {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
+    // Wait for navigation to complete after login
+    await this.page.waitForLoadState('networkidle', { timeout: 60000 });
   }
 
   async getErrorMessage() {

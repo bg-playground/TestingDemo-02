@@ -28,6 +28,7 @@ export class AdminPage {
   }
 
   async getRecordsCount() {
+    await this.recordsFound.waitFor({ state: 'visible', timeout: 60000 });
     return await this.recordsFound.textContent() || '';
   }
 
