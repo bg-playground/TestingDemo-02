@@ -1,20 +1,5 @@
-import { Page, Locator } from '@playwright/test';
-
 export class DashboardPage {
-  readonly page: Page;
-  readonly dashboardTitle: Locator;
-  readonly userDropdown: Locator;
-  readonly logoutOption: Locator;
-  readonly quickLaunchSection: Locator;
-  readonly timeAtWorkWidget: Locator;
-  readonly myActionsWidget: Locator;
-  readonly adminMenu: Locator;
-  readonly pimMenu: Locator;
-  readonly leaveMenu: Locator;
-  readonly timeMenu: Locator;
-  readonly recruitmentMenu: Locator;
-
-  constructor(page: Page) {
+  constructor(page) {
     this.page = page;
     this.dashboardTitle = page.getByRole('heading', { name: 'Dashboard' });
     this.userDropdown = page.locator('.oxd-userdropdown');
@@ -29,7 +14,7 @@ export class DashboardPage {
     this.recruitmentMenu = page.getByRole('link', { name: 'Recruitment' });
   }
 
-  async isDashboardVisible(): Promise<boolean> {
+  async isDashboardVisible() {
     return await this.dashboardTitle.isVisible();
   }
 
@@ -58,7 +43,7 @@ export class DashboardPage {
     await this.recruitmentMenu.click();
   }
 
-  async getUsername(): Promise<string> {
+  async getUsername() {
     await this.userDropdown.click();
     const username = await this.page.locator('.oxd-userdropdown-name').textContent();
     await this.page.keyboard.press('Escape'); // Close dropdown

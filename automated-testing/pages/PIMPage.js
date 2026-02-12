@@ -1,17 +1,5 @@
-import { Page, Locator } from '@playwright/test';
-
 export class PIMPage {
-  readonly page: Page;
-  readonly pageTitle: Locator;
-  readonly addButton: Locator;
-  readonly searchButton: Locator;
-  readonly employeeNameInput: Locator;
-  readonly employeeIdInput: Locator;
-  readonly recordsFound: Locator;
-  readonly deleteButton: Locator;
-  readonly editButton: Locator;
-
-  constructor(page: Page) {
+  constructor(page) {
     this.page = page;
     this.pageTitle = page.getByRole('heading', { name: 'PIM' });
     this.addButton = page.getByRole('button', { name: 'Add' });
@@ -23,7 +11,7 @@ export class PIMPage {
     this.editButton = page.locator('.oxd-icon-button .bi-pencil-fill');
   }
 
-  async isPIMPageVisible(): Promise<boolean> {
+  async isPIMPageVisible() {
     return await this.pageTitle.isVisible();
   }
 
@@ -31,27 +19,18 @@ export class PIMPage {
     await this.addButton.click();
   }
 
-  async searchByEmployeeId(employeeId: string) {
+  async searchByEmployeeId(employeeId) {
     await this.employeeIdInput.fill(employeeId);
     await this.searchButton.click();
   }
 
-  async getRecordsCount(): Promise<string> {
+  async getRecordsCount() {
     return await this.recordsFound.textContent() || '';
   }
 }
 
 export class AddEmployeePage {
-  readonly page: Page;
-  readonly firstNameInput: Locator;
-  readonly middleNameInput: Locator;
-  readonly lastNameInput: Locator;
-  readonly employeeIdInput: Locator;
-  readonly saveButton: Locator;
-  readonly cancelButton: Locator;
-  readonly createLoginCheckbox: Locator;
-
-  constructor(page: Page) {
+  constructor(page) {
     this.page = page;
     this.firstNameInput = page.getByPlaceholder('First Name');
     this.middleNameInput = page.getByPlaceholder('Middle Name');
@@ -62,7 +41,7 @@ export class AddEmployeePage {
     this.createLoginCheckbox = page.locator('.oxd-switch-input');
   }
 
-  async addEmployee(firstName: string, lastName: string, employeeId?: string) {
+  async addEmployee(firstName, lastName, employeeId) {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
     if (employeeId) {

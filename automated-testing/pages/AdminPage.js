@@ -1,20 +1,5 @@
-import { Page, Locator } from '@playwright/test';
-
 export class AdminPage {
-  readonly page: Page;
-  readonly pageTitle: Locator;
-  readonly addButton: Locator;
-  readonly searchButton: Locator;
-  readonly resetButton: Locator;
-  readonly usernameSearchInput: Locator;
-  readonly userRoleDropdown: Locator;
-  readonly employeeNameInput: Locator;
-  readonly statusDropdown: Locator;
-  readonly recordsFound: Locator;
-  readonly deleteButton: Locator;
-  readonly editButton: Locator;
-
-  constructor(page: Page) {
+  constructor(page) {
     this.page = page;
     this.pageTitle = page.getByRole('heading', { name: 'Admin' });
     this.addButton = page.getByRole('button', { name: 'Add' });
@@ -29,7 +14,7 @@ export class AdminPage {
     this.editButton = page.locator('.oxd-icon-button .bi-pencil-fill');
   }
 
-  async isAdminPageVisible(): Promise<boolean> {
+  async isAdminPageVisible() {
     return await this.pageTitle.isVisible();
   }
 
@@ -37,12 +22,12 @@ export class AdminPage {
     await this.addButton.click();
   }
 
-  async searchByUsername(username: string) {
+  async searchByUsername(username) {
     await this.usernameSearchInput.fill(username);
     await this.searchButton.click();
   }
 
-  async getRecordsCount(): Promise<string> {
+  async getRecordsCount() {
     return await this.recordsFound.textContent() || '';
   }
 

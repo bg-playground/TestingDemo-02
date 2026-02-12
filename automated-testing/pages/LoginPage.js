@@ -1,15 +1,5 @@
-import { Page, Locator } from '@playwright/test';
-
 export class LoginPage {
-  readonly page: Page;
-  readonly usernameInput: Locator;
-  readonly passwordInput: Locator;
-  readonly loginButton: Locator;
-  readonly errorMessage: Locator;
-  readonly forgotPasswordLink: Locator;
-  readonly pageTitle: Locator;
-
-  constructor(page: Page) {
+  constructor(page) {
     this.page = page;
     this.usernameInput = page.getByPlaceholder('Username').or(page.locator('input[name="username"]'));
     this.passwordInput = page.getByPlaceholder('Password').or(page.locator('input[name="password"]'));
@@ -23,17 +13,17 @@ export class LoginPage {
     await this.page.goto('/');
   }
 
-  async login(username: string, password: string) {
+  async login(username, password) {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
   }
 
-  async getErrorMessage(): Promise<string> {
+  async getErrorMessage() {
     return await this.errorMessage.textContent() || '';
   }
 
-  async isLoginPageVisible(): Promise<boolean> {
+  async isLoginPageVisible() {
     return await this.pageTitle.isVisible();
   }
 }
