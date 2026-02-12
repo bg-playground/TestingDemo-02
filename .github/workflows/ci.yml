@@ -22,15 +22,11 @@ jobs:
           ls -al
           echo "Contents of ./automated-testing directory:"
           ls -al ./automated-testing
-        
+
       - name: Install Node Dependencies
-        run: |
-          cd ./automated-testing
-          npm install
-        shell: bash
+        working-directory: ./automated-testing
+        run: npm install
 
       - name: Run npm Tests
-        run: |
-          cd ./automated-testing
-          npm test
-        shell: bash
+        working-directory: ./automated-testing
+        run: npm test
