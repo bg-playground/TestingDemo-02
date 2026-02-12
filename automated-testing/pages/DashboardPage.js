@@ -27,12 +27,16 @@ export class DashboardPage {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.adminMenu.waitFor({ state: 'visible', timeout: 60000 });
     await this.adminMenu.click();
+    // Wait for Admin page to load
+    await this.page.getByRole('heading', { name: 'Admin' }).waitFor({ state: 'visible', timeout: 60000 });
   }
 
   async navigateToPIM() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.pimMenu.waitFor({ state: 'visible', timeout: 60000 });
     await this.pimMenu.click();
+    // Wait for PIM page to load
+    await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 60000 });
   }
 
   async navigateToLeave() {
