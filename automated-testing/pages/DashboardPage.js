@@ -55,20 +55,30 @@ export class DashboardPage {
   async navigateToPIM() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.ensureMenuVisible();
-    
-    // Wait for PIM menu to be stable and ready
-    await this.pimMenu.waitFor({ state: 'attached', timeout: 15000 });
+
+    // Ensure the PIM menu is attached and visible with longer timeouts for mobile
+    await this.pimMenu.waitFor({ state: 'attached', timeout: 20000 });
     await this.pimMenu.scrollIntoViewIfNeeded();
-    await this.pimMenu.waitFor({ state: 'visible', timeout: 60000 });
-    
-    // Wait for navigation to complete after clicking
-    await Promise.all([
-      this.page.waitForURL(/.*pim/, { timeout: 60000 }),
-      this.pimMenu.click({ force: true })
-    ]);
-    
-    // Wait for PIM page to load
-    await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 60000 });
+
+    // Try up to 3 times in case of menu animation delays (especially in mobile)
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        await this.pimMenu.waitFor({ state: 'visible', timeout: 20000 });
+        await Promise.all([
+          this.page.waitForURL(/.*pim/, { timeout: 60000 }),
+          this.pimMenu.click({ force: true }),
+        ]);
+        // Confirm heading appears
+        await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 60000 });
+        return;
+      } catch (e) {
+        // If click fails, try to open hamburger menu again and retry
+        await this.ensureMenuVisible();
+        // Small wait before retrying
+        await this.page.waitForTimeout(1000);
+      }
+    }
+    throw new Error('Could not navigate to PIM menu in mobile view after several attempts');
   }
 
   async navigateToLeave() {
