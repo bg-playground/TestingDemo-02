@@ -34,7 +34,7 @@ export class DashboardPage {
         // Click to open mobile menu
         await this.mobileMenuToggle.click();
         // Wait for the main navigation menu to become visible after opening
-        await this.mainMenu.waitFor({ state: 'visible', timeout: 5000 });
+        await this.mainMenu.waitFor({ state: 'visible', timeout: 10000 });
       }
     } catch (error) {
       // Mobile menu toggle not found or timeout - likely already visible or desktop view
@@ -56,10 +56,8 @@ export class DashboardPage {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.ensureMenuVisible();
     
-    // Increase delay for mobile menu animations (especially Safari)
-    await this.page.waitForTimeout(2000);
-    
-    await this.pimMenu.waitFor({ state: 'attached', timeout: 10000 });
+    // Wait for PIM menu to be stable and ready
+    await this.pimMenu.waitFor({ state: 'attached', timeout: 15000 });
     await this.pimMenu.scrollIntoViewIfNeeded();
     await this.pimMenu.waitFor({ state: 'visible', timeout: 60000 });
     
