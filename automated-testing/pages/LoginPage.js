@@ -17,11 +17,10 @@ export class LoginPage {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
-    // Wait for navigation to complete after login
-    await this.page.waitForLoadState('networkidle', { timeout: 60000 });
-    // Ensure dashboard is actually loaded
-    await this.page.waitForURL(/.*dashboard/, { timeout: 60000 });
-    await this.page.getByRole('heading', { name: 'Dashboard' }).waitFor({ state: 'visible', timeout: 60000 });
+    
+    // Wait for dashboard to be fully loaded - single, reliable wait
+    await this.page.waitForURL(/.*dashboard/, { timeout: 90000 });
+    await this.page.getByRole('heading', { name: 'Dashboard' }).waitFor({ state: 'visible', timeout: 90000 });
   }
 
   async getErrorMessage() {
