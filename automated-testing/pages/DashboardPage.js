@@ -74,6 +74,10 @@ export class DashboardPage {
       } catch (e) {
         // If click fails, try to open hamburger menu again and retry
         await this.ensureMenuVisible();
+        // Check if page is still active before waiting
+        if (this.page.isClosed && this.page.isClosed()) {
+          throw new Error('Browser/page was closed unexpectedly during PIM navigation');
+        }
         // Small wait before retrying
         await this.page.waitForTimeout(1000);
       }
