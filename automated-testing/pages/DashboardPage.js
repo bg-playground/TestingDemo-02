@@ -79,7 +79,7 @@ export class DashboardPage {
           throw new Error(`Could not navigate to PIM menu after 3 attempts. Last error: ${e.message}`);
         }
         await this.ensureMenuVisible();
-        await this.page.waitForTimeout(3000); // Increased from 2000ms for better mobile stability
+        await this.page.waitForTimeout(3000); // Increased from 1000ms for better mobile stability
       }
     }
   }
