@@ -72,14 +72,17 @@ export class DashboardPage {
         await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 60000 });
         return;
       } catch (e) {
-        // If click fails, try to open hamburger menu again and retry
-        await this.ensureMenuVisible();
-        // Check if page is still active before waiting
-        if (this.page.isClosed && this.page.isClosed()) {
+        // If this is the last attempt, just break and throw the final error
+        if (attempt === 2) break;
+
+        // Try to recover - but guard against closed page
+        try {
+          await this.ensureMenuVisible();
+          await this.page.waitForTimeout(1000);
+        } catch {
+          // Page is likely closed/crashed - no point retrying
           throw new Error('Browser/page was closed unexpectedly during PIM navigation');
         }
-        // Small wait before retrying
-        await this.page.waitForTimeout(1000);
       }
     }
     throw new Error('Could not navigate to PIM menu in mobile view after several attempts');
