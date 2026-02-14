@@ -56,33 +56,29 @@ export class DashboardPage {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.ensureMenuVisible();
 
-    // Ensure the PIM menu is attached and visible with longer timeouts for mobile
-    await this.pimMenu.waitFor({ state: 'attached', timeout: 20000 });
+    await this.pimMenu.waitFor({ state: 'attached', timeout: 30000 });
     await this.pimMenu.scrollIntoViewIfNeeded();
 
-    // Try up to 3 times in case of menu animation delays (especially in mobile)
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
-        await this.pimMenu.waitFor({ state: 'visible', timeout: 20000 });
-        await Promise.all([
-          this.page.waitForURL(/.*pim/, { timeout: 60000 }),
-          this.pimMenu.click({ force: true }),
-        ]);
-        // Confirm heading appears
-        await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 60000 });
+        await this.pimMenu.waitFor({ state: 'visible', timeout: 30000 });
+        // Wait for PIM menu to be enabled and not moving
+        await this.page.waitForTimeout(500);
+        await this.pimMenu.click({ force: true });
+        await this.page.waitForURL(/.*pim/, { timeout: 90000 });
+        await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 90000 });
         return;
       } catch (e) {
-        // If click fails, try to open hamburger menu again and retry
-        await this.ensureMenuVisible();
-        // Check if page is still active before waiting
-        if (this.page.isClosed && this.page.isClosed()) {
-          throw new Error('Browser/page was closed unexpectedly during PIM navigation');
+        if (this.page.isClosed()) {
+          throw new Error(`Browser/page was closed unexpectedly during PIM navigation. Original error: ${e.message}`);
         }
-        // Small wait before retrying
-        await this.page.waitForTimeout(1000);
+        if (attempt === 2) {
+          throw new Error(`Could not navigate to PIM menu after 3 attempts. Last error: ${e.message}`);
+        }
+        await this.ensureMenuVisible();
+        await this.page.waitForTimeout(3000);
       }
     }
-    throw new Error('Could not navigate to PIM menu in mobile view after several attempts');
   }
 
   async navigateToLeave() {
