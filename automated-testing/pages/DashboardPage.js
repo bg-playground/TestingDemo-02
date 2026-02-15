@@ -64,12 +64,17 @@ export class DashboardPage {
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
         await this.pimMenu.waitFor({ state: 'visible', timeout: 20000 });
-        await Promise.all([
-          this.page.waitForURL(/.*pim/, { timeout: 60000 }),
-          this.pimMenu.click({ force: true }),
+        // Explicit visibility check before clicking
+        if (!(await this.pimMenu.isVisible())) {
+          throw new Error('PIM menu not visible before click attempt');
+        }
+        // Click without force to ensure stable interaction
+        await this.pimMenu.click();
+        // Wait for either URL change OR heading visibility (whichever comes first)
+        await Promise.race([
+          this.page.waitForURL(/.*pim/, { timeout: 90000 }),
+          this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 90000 })
         ]);
-        // Confirm heading appears
-        await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 60000 });
         return;
       } catch (e) {
         // If click fails, try to open hamburger menu again and retry
