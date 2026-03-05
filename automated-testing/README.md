@@ -83,7 +83,7 @@ npm install
 ### 3. Install Playwright Browsers
 
 ```bash
-npx playwright install
+npx playwright install --with-deps
 ```
 
 ### 4. Configure Environment
@@ -248,13 +248,10 @@ jobs:
 
 ```javascript
 // pages/ExamplePage.js
-import { Page, Locator } from '@playwright/test';
+const { expect } = require('@playwright/test');
 
-export class ExamplePage {
-  readonly page: Page;
-  readonly submitButton: Locator;
-
-  constructor(page: Page) {
+class ExamplePage {
+  constructor(page) {
     this.page = page;
     this.submitButton = page.getByRole('button', { name: 'Submit' });
   }
@@ -263,14 +260,16 @@ export class ExamplePage {
     await this.submitButton.click();
   }
 }
+
+module.exports = { ExamplePage };
 ```
 
 ### Test Example
 
 ```javascript
 // tests/ui/example.spec.js
-import { test, expect } from '@playwright/test';
-import { ExamplePage } from '../../pages/ExamplePage';
+const { test, expect } = require('@playwright/test');
+const { ExamplePage } = require('../../pages/ExamplePage');
 
 test('Example Test', async ({ page }) => {
   const examplePage = new ExamplePage(page);

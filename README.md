@@ -125,7 +125,7 @@ cd automated-testing
 npm install
 
 # Install browsers
-npx playwright install
+npx playwright install --with-deps
 
 # Run all tests
 npm test
@@ -269,7 +269,7 @@ cd TestingDemo-02
 ```bash
 cd automated-testing
 npm install
-npx playwright install
+npx playwright install --with-deps
 npm test
 ```
 
