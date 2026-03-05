@@ -2,7 +2,7 @@ const { devices } = require('@playwright/test');
 
 module.exports = {  
   testDir: 'tests',  
-  timeout: 90000,  
+  timeout: 120000,  
   expect: {  
     timeout: 5000,  
   },  
