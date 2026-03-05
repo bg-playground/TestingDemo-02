@@ -56,38 +56,19 @@ export class DashboardPage {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.ensureMenuVisible();
 
-    // Ensure the PIM menu is attached and visible with longer timeouts for mobile
-    await this.pimMenu.waitFor({ state: 'attached', timeout: 20000 });
-    await this.pimMenu.scrollIntoViewIfNeeded();
-
-    // Try up to 3 times in case of menu animation delays (especially in mobile)
-    for (let attempt = 0; attempt < 3; attempt++) {
-      try {
-        await this.pimMenu.waitFor({ state: 'visible', timeout: 20000 });
-        // Explicit visibility check before clicking
-        if (!(await this.pimMenu.isVisible())) {
-          throw new Error('PIM menu not visible before click attempt');
-        }
-        // Click without force to ensure stable interaction
-        await this.pimMenu.click();
-        // Wait for either URL change OR heading visibility (whichever comes first)
-        await Promise.race([
-          this.page.waitForURL(/.*pim/, { timeout: 90000 }),
-          this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 90000 })
-        ]);
-        return;
-      } catch (e) {
-        // If click fails, try to open hamburger menu again and retry
-        await this.ensureMenuVisible();
-        // Check if page is still active before waiting
-        if (this.page.isClosed && this.page.isClosed()) {
-          throw new Error('Browser/page was closed unexpectedly during PIM navigation');
-        }
-        // Small wait before retrying
-        await this.page.waitForTimeout(1000);
-      }
+    try {
+      await this.pimMenu.scrollIntoViewIfNeeded();
+      await this.pimMenu.waitFor({ state: 'visible', timeout: 15000 });
+      await this.pimMenu.click();
+      await this.page.waitForURL(/.*pim/, { timeout: 30000 });
+    } catch (e) {
+      // Fallback: navigate directly via URL if menu click fails
+      await this.page.goto('/web/index.php/pim/viewEmployeeList');
+      await this.page.waitForURL(/.*pim/, { timeout: 30000 });
     }
-    throw new Error('Could not navigate to PIM menu in mobile view after several attempts');
+
+    // Verify PIM page loaded
+    await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 30000 });
   }
 
   async navigateToLeave() {

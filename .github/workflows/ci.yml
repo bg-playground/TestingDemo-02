@@ -14,14 +14,12 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Log project structure for debugging
-        run: |
-          echo "Root directory:"
-          ls -al
-          echo "Contents of ./automated-testing directory:"
-          ls -al ./automated-testing
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
       - name: Install Node Dependencies
         working-directory: ./automated-testing
@@ -34,3 +32,11 @@ jobs:
       - name: Run npm Tests
         working-directory: ./automated-testing
         run: npm test
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: automated-testing/playwright-report/
+          retention-days: 30
