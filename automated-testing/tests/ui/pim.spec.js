@@ -4,6 +4,8 @@ import { DashboardPage } from '../../pages/DashboardPage';
 import { PIMPage, AddEmployeePage } from '../../pages/PIMPage';
 
 test.describe('PIM Module Tests', () => {
+  test.slow(); // Triple timeout — tests depend on external demo site
+
   let loginPage;
   let dashboardPage;
   let pimPage;
