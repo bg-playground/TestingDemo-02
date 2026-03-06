@@ -45,7 +45,8 @@ test.describe('Admin Module Tests', () => {
     });
 
     await test.step('Verify Add User page is displayed', async () => {
-      await expect(page.getByRole('heading', { name: 'Add User' })).toBeVisible();
+      // Wait for page navigation after clicking Add — the external demo site can be slow
+      await expect(page.getByRole('heading', { name: 'Add User' })).toBeVisible({ timeout: 30000 });
     });
   });
 
