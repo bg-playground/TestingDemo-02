@@ -5,6 +5,8 @@
 
 A comprehensive Quality Assurance testing framework demonstrating both manual and automated testing practices for the [OrangeHRM Demo Application](https://opensource-demo.orangehrmlive.com/).
 
+> ⚠️ **Note:** The OrangeHRM demo site may experience periodic downtime. If the link above is unavailable, please try again later or visit the [OrangeHRM main site](https://www.orangehrm.com/).
+
 ## 🎯 Project Overview
 
 This repository showcases a complete QA testing framework including:
@@ -205,6 +207,8 @@ See `.github/workflows/azure-deploy.yml.example` for deployment template.
 - **URL**: https://opensource-demo.orangehrmlive.com/
 - **Username**: Admin
 - **Password**: admin123
+
+> ⚠️ **Note:** The demo site may experience periodic downtime or intermittent availability issues. If it is unavailable, please try again later or visit the [OrangeHRM main site](https://www.orangehrm.com/) as a fallback.
 
 ### Modules Tested
 

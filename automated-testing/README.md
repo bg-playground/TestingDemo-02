@@ -101,6 +101,7 @@ Create a `.env` file in the `automated-testing` directory:
 
 ```env
 BASE_URL=https://opensource-demo.orangehrmlive.com
+# Note: The demo site may have intermittent availability; if tests fail to connect, try again later.
 USERNAME=Admin
 PASSWORD=admin123
 TIMEOUT=30000
