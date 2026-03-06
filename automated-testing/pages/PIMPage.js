@@ -44,10 +44,10 @@ export class AddEmployeePage {
   async addEmployee(firstName, lastName, employeeId) {
     await this.firstNameInput.fill(firstName);
     await this.lastNameInput.fill(lastName);
-    if (employeeId) {
-      await this.employeeIdInput.clear();
-      await this.employeeIdInput.fill(employeeId);
-    }
+    // Always set a unique Employee ID to prevent collisions on the shared demo site
+    const uniqueId = employeeId || String(Date.now()).slice(-4);
+    await this.employeeIdInput.clear();
+    await this.employeeIdInput.fill(uniqueId);
     await this.saveButton.click();
   }
 }
