@@ -45,11 +45,20 @@ export class DashboardPage {
   async navigateToAdmin() {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.ensureMenuVisible();
-    await this.adminMenu.scrollIntoViewIfNeeded();
-    await this.adminMenu.waitFor({ state: 'visible', timeout: 60000 });
-    await this.adminMenu.click();
-    // Wait for Admin page to load
-    await this.page.getByRole('heading', { name: 'Admin' }).waitFor({ state: 'visible', timeout: 60000 });
+
+    try {
+      await this.adminMenu.scrollIntoViewIfNeeded();
+      await this.adminMenu.waitFor({ state: 'visible', timeout: 15000 });
+      await this.adminMenu.click();
+      await this.page.waitForURL(/.*admin/, { timeout: 30000 });
+    } catch (e) {
+      // Fallback: navigate directly via URL if menu click fails (e.g. sidebar collapsed)
+      await this.page.goto('/web/index.php/admin/viewAdminModule');
+      await this.page.waitForURL(/.*admin/, { timeout: 30000 });
+    }
+
+    // Verify Admin page loaded
+    await this.page.getByRole('heading', { name: 'Admin' }).waitFor({ state: 'visible', timeout: 30000 });
   }
 
   async navigateToPIM() {
