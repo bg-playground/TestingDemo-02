@@ -83,7 +83,7 @@ npm install
 ### 3. Install Playwright Browsers
 
 ```bash
-npx playwright install
+npx playwright install --with-deps
 ```
 
 ### 4. Configure Environment
@@ -218,8 +218,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
       - name: Install dependencies
@@ -236,7 +236,7 @@ jobs:
           npm test
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results
           path: automated-testing/test-results/
@@ -248,13 +248,8 @@ jobs:
 
 ```javascript
 // pages/ExamplePage.js
-import { Page, Locator } from '@playwright/test';
-
-export class ExamplePage {
-  readonly page: Page;
-  readonly submitButton: Locator;
-
-  constructor(page: Page) {
+class ExamplePage {
+  constructor(page) {
     this.page = page;
     this.submitButton = page.getByRole('button', { name: 'Submit' });
   }
@@ -263,14 +258,16 @@ export class ExamplePage {
     await this.submitButton.click();
   }
 }
+
+module.exports = { ExamplePage };
 ```
 
 ### Test Example
 
 ```javascript
 // tests/ui/example.spec.js
-import { test, expect } from '@playwright/test';
-import { ExamplePage } from '../../pages/ExamplePage';
+const { test, expect } = require('@playwright/test');
+const { ExamplePage } = require('../../pages/ExamplePage');
 
 test('Example Test', async ({ page }) => {
   const examplePage = new ExamplePage(page);
