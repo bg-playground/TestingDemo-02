@@ -53,7 +53,9 @@ test.describe('PIM Module Tests', () => {
     });
 
     await test.step('Verify employee is saved', async () => {
-      await expect(page.getByText('Personal Details')).toBeVisible({ timeout: 30000 });
+      // Use heading role to avoid strict mode violation — the page has both
+      // a link and a heading with text "Personal Details"
+      await expect(page.getByRole('heading', { name: 'Personal Details' })).toBeVisible({ timeout: 30000 });
     });
   });
 
