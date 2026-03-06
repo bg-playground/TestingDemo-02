@@ -15,7 +15,7 @@ test.describe('Admin Module Tests', () => {
 
     // Login before each test
     await loginPage.goto();
-    await loginPage.login('Admin', 'admin123');
+    await loginPage.loginAndWaitForDashboard('Admin', 'admin123');
     await expect(page).toHaveURL(/.*dashboard/);
     await dashboardPage.navigateToAdmin();
   });
