@@ -82,7 +82,7 @@ test.describe('Authentication Tests', () => {
 
     await test.step('Verify redirected to login page', async () => {
       await expect(page).toHaveURL(/.*login/);
-      // Wait for the login page heading to be visible before asserting
+      // Wait for the login page heading to be visible before checking
       await loginPage.pageTitle.waitFor({ state: 'visible', timeout: 30000 });
       const isLoginPageVisible = await loginPage.isLoginPageVisible();
       expect(isLoginPageVisible).toBeTruthy();
