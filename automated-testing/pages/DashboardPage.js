@@ -62,17 +62,16 @@ export class DashboardPage {
   }
 
   async navigateToPIM() {
-    await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
-    await this.ensureMenuVisible();
-
+    // Navigate directly to PIM Employee List -- avoids dependency on being on Dashboard page
     try {
+      await this.page.goto('/web/index.php/pim/viewEmployeeList');
+      await this.page.waitForURL(/.*pim/, { timeout: 30000 });
+    } catch (e) {
+      // Fallback: try sidebar menu click
+      await this.ensureMenuVisible();
       await this.pimMenu.scrollIntoViewIfNeeded();
       await this.pimMenu.waitFor({ state: 'visible', timeout: 15000 });
       await this.pimMenu.click();
-      await this.page.waitForURL(/.*pim/, { timeout: 30000 });
-    } catch (e) {
-      // Fallback: navigate directly via URL if menu click fails
-      await this.page.goto('/web/index.php/pim/viewEmployeeList');
       await this.page.waitForURL(/.*pim/, { timeout: 30000 });
     }
 
