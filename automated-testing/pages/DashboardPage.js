@@ -65,19 +65,33 @@ export class DashboardPage {
     await this.dashboardTitle.waitFor({ state: 'visible', timeout: 60000 });
     await this.ensureMenuVisible();
 
-    try {
-      await this.pimMenu.scrollIntoViewIfNeeded();
-      await this.pimMenu.waitFor({ state: 'visible', timeout: 15000 });
-      await this.pimMenu.click();
-      await this.page.waitForURL(/.*pim/, { timeout: 30000 });
-    } catch (e) {
-      // Fallback: navigate directly via URL if menu click fails
-      await this.page.goto('/web/index.php/pim/viewEmployeeList');
-      await this.page.waitForURL(/.*pim/, { timeout: 30000 });
-    }
+    await this.pimMenu.waitFor({ state: 'attached', timeout: 30000 });
+    await this.pimMenu.scrollIntoViewIfNeeded();
 
-    // Verify PIM page loaded
-    await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 30000 });
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        await this.pimMenu.waitFor({ state: 'visible', timeout: 30000 });
+        // Wait for menu to stabilize (animations, especially on mobile)
+        await this.page.waitForTimeout(500);
+        await this.pimMenu.click({ force: true });
+        await this.page.waitForURL(/.*pim/, { timeout: 90000 });
+        await this.page.getByRole('heading', { name: 'PIM' }).waitFor({ state: 'visible', timeout: 90000 });
+        return;
+      } catch (e) {
+        // If this is the last attempt, break and throw below
+        if (attempt === 2) break;
+
+        // Try to recover — but guard against closed page
+        try {
+          await this.ensureMenuVisible();
+          await this.page.waitForTimeout(3000);
+        } catch {
+          // Page is likely closed/crashed — no point retrying
+          throw new Error(`Browser/page was closed unexpectedly during PIM navigation. Original error: ${e.message}`);
+        }
+      }
+    }
+    throw new Error('Could not navigate to PIM menu after 3 attempts');
   }
 
   async navigateToLeave() {
