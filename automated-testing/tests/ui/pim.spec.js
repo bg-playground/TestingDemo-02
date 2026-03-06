@@ -17,7 +17,7 @@ test.describe('PIM Module Tests', () => {
 
     // Login before each test
     await loginPage.goto();
-    await loginPage.login('Admin', 'admin123');
+    await loginPage.loginAndWaitForDashboard('Admin', 'admin123');
     await expect(page).toHaveURL(/.*dashboard/);
     await dashboardPage.navigateToPIM();
   });
@@ -53,9 +53,9 @@ test.describe('PIM Module Tests', () => {
     });
 
     await test.step('Verify employee is saved', async () => {
-      // Wait for save to complete and page redirect
-      await page.waitForTimeout(3000);
-      await expect(page.getByText('Personal Details')).toBeVisible();
+      // Use heading role to avoid strict mode violation — the page has both
+      // a link and a heading with text "Personal Details"
+      await expect(page.getByRole('heading', { name: 'Personal Details' })).toBeVisible({ timeout: 30000 });
     });
   });
 

@@ -15,7 +15,7 @@ test.describe('Admin Module Tests', () => {
 
     // Login before each test
     await loginPage.goto();
-    await loginPage.login('Admin', 'admin123');
+    await loginPage.loginAndWaitForDashboard('Admin', 'admin123');
     await expect(page).toHaveURL(/.*dashboard/);
     await dashboardPage.navigateToAdmin();
   });
@@ -45,7 +45,8 @@ test.describe('Admin Module Tests', () => {
     });
 
     await test.step('Verify Add User page is displayed', async () => {
-      await expect(page.getByRole('heading', { name: 'Add User' })).toBeVisible();
+      // Use explicit timeout — the demo site can be slow to navigate after clicking Add
+      await expect(page.getByRole('heading', { name: 'Add User' })).toBeVisible({ timeout: 30000 });
     });
   });
 

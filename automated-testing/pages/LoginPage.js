@@ -17,8 +17,10 @@ export class LoginPage {
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     await this.loginButton.click();
-    
-    // Wait for dashboard to be fully loaded - single, reliable wait
+  }
+
+  async loginAndWaitForDashboard(username, password) {
+    await this.login(username, password);
     await this.page.waitForURL(/.*dashboard/, { timeout: 90000 });
     await this.page.getByRole('heading', { name: 'Dashboard' }).waitFor({ state: 'visible', timeout: 90000 });
   }

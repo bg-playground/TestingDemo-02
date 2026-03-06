@@ -14,7 +14,7 @@ test.describe('Authentication Tests', () => {
 
   test('TC-AUTH-001: Valid Login', async ({ page }) => {
     await test.step('Enter valid credentials and login', async () => {
-      await loginPage.login('Admin', 'admin123');
+      await loginPage.loginAndWaitForDashboard('Admin', 'admin123');
     });
 
     await test.step('Verify dashboard is displayed', async () => {
@@ -27,6 +27,7 @@ test.describe('Authentication Tests', () => {
   test('TC-AUTH-002: Invalid Username', async ({ page }) => {
     await test.step('Enter invalid username', async () => {
       await loginPage.login('InvalidUser', 'admin123');
+      await loginPage.errorMessage.waitFor({ state: 'visible', timeout: 10000 });
     });
 
     await test.step('Verify error message is displayed', async () => {
@@ -38,6 +39,7 @@ test.describe('Authentication Tests', () => {
   test('TC-AUTH-003: Invalid Password', async ({ page }) => {
     await test.step('Enter invalid password', async () => {
       await loginPage.login('Admin', 'WrongPassword');
+      await loginPage.errorMessage.waitFor({ state: 'visible', timeout: 10000 });
     });
 
     await test.step('Verify error message is displayed', async () => {
@@ -70,7 +72,7 @@ test.describe('Authentication Tests', () => {
 
   test('TC-AUTH-006: Logout Functionality', async ({ page }) => {
     await test.step('Login successfully', async () => {
-      await loginPage.login('Admin', 'admin123');
+      await loginPage.loginAndWaitForDashboard('Admin', 'admin123');
       await expect(page).toHaveURL(/.*dashboard/);
     });
 
@@ -80,6 +82,8 @@ test.describe('Authentication Tests', () => {
 
     await test.step('Verify redirected to login page', async () => {
       await expect(page).toHaveURL(/.*login/);
+      // Wait for the login page heading to be visible before checking
+      await loginPage.pageTitle.waitFor({ state: 'visible', timeout: 30000 });
       const isLoginPageVisible = await loginPage.isLoginPageVisible();
       expect(isLoginPageVisible).toBeTruthy();
     });
@@ -88,6 +92,7 @@ test.describe('Authentication Tests', () => {
   test('TC-AUTH-008: SQL Injection Prevention', async ({ page }) => {
     await test.step('Attempt SQL injection in username', async () => {
       await loginPage.login("Admin' OR '1'='1", 'anything');
+      await loginPage.errorMessage.waitFor({ state: 'visible', timeout: 10000 });
     });
 
     await test.step('Verify login fails securely', async () => {
@@ -99,6 +104,7 @@ test.describe('Authentication Tests', () => {
   test('TC-AUTH-009: XSS Prevention', async ({ page }) => {
     await test.step('Attempt XSS in username field', async () => {
       await loginPage.login("<script>alert('XSS')</script>", 'admin123');
+      await loginPage.errorMessage.waitFor({ state: 'visible', timeout: 10000 });
     });
 
     await test.step('Verify no script execution', async () => {
